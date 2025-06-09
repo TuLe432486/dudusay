@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đu Đủ Sấy Elogi - Snack Tự Nhiên Bổ Dưỡng</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #eee;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-shadow: 0 2px 4px rgba(255, 140, 0, 0.3);
+        }
+
+        .logo img {
+            height: 32px;
+            width: 32px;
+            border-radius: 50%;
+            border: 2px solid #FFD700;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ffeb3b;
+        }
+
+        /* New Banner Section */
+        .banner {
+            background: linear-gradient(135deg, #d4a574 0%, #c49660 50%, #b8885a 100%);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 120px 0 60px;
+            margin-top: 80px;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 120%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .banner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner-content {
+            color: white;
+        }
+
+        .main-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            opacity: 0.95;
+            max-width: 450px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 20px rgba(255,107,53,0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #e55a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255,107,53,0.4);
+        }
+
+        .btn-play {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 10px;
+        }
+
+        .btn-play:hover {
+            transform: translateY(-2px);
+        }
+
+        .play-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .btn-play:hover .play-icon {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.1);
+        }
+
+        .products-display {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .product-platform {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(145deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1));
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .platform-1 {
+            width: 220px;
+            height: 100px;
+            bottom: 80px;
+            left: 45px;
+            transform: perspective(500px) rotateX(60deg);
+        }
+
+        .platform-2 {
+            width: 180px;
+            height: 60px;
+            bottom: 120px;
+            right: 80px;
+            left: 380px;
+            transform: perspective(500px) rotateX(60deg);
+        }
+
+        .platform-3 {
+            width: 150px;
+            height: 50px;
+            top: 100px;
+            right: 120px;
+            left: 280px;
+            transform: perspective(500px) rotateX(60deg);
+        }
+
+        .product-item {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .product-1 {
+            bottom: 160px;
+            left: 90px;
+            animation-delay: 0s;
+            margin-left: 20px;
+        }
+
+        .product-2 {
+            bottom: 255px;
+            right: 100px;
+            width: 70px;
+            height: 90px;
+            animation-delay: 0.5s;
+            left: 320px;
+        }
+
+        .product-3 {
+            top: 130px;
+            right: 1450px;
+            width: 60px;
+            height: 80px;
+            left: 435px;
+            font-size: 2rem;
+            animation-delay: 1s;
+        }
+
+        .decoration-circle {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(255,204,128,0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50px;
+            right: 100px;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* Product Section */
+        .product-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #fff, #f8f9fa);
+        }
+        .product-flex {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .product-benefits-list {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .product-benefit-icon {
+            position: absolute;
+            left: 1.2rem;
+            top: 2rem;
+            font-size: 2rem;
+            background: #f8f9fa;
+            border-radius: 50%;
+            width: 2.8rem;
+            height: 2.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+        .product-benefit-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #444;
+        }
+        .product-benefit-desc {
+            color: #888;
+            font-size: 1rem;
+        }
+        .product-image-leaf {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .leaf-box {
+            width: 430px;
+            height: 450px;
+            background: linear-gradient(135deg,rgb(252, 241, 197) 0%,rgb(252, 221, 175) 50%,rgb(251, 208, 136) 100%);
+            border-radius: 0 50% 0 50%/0 50% 0 50%;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 170px;
+            margin-left: 70px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            animation: leafFloat 3s ease-in-out infinite;
+        }
+        @keyframes leafFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+
+        .leaf-box:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 16px 48px rgb(251, 208, 136);
+        }
+
+        .leaf-box img {
+            transition: all 0.3s ease;
+        }
+
+        .leaf-box:hover img {
+            transform: scale(1.1);
+        }
+        .leaf-box-icon {
+            font-size: 3rem;
+            color: #bdbdbd;
+            margin-bottom: 1rem;
+        }
+        .leaf-box-text {
+            color: #888;
+            font-size: 1.1rem;
+        }
+
+        .product-section-home-link {
+            text-align: center;
+            font-size: 3rem;
+            color: #ff6b35;
+            margin-bottom: 3rem;
+        }
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        }
+
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 3rem;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Nutrition Section */
+        .nutrition {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .nutrition h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #ff6b35;
+            margin-bottom: 3rem;
+        }
+
+        .nutrition-table {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .nutrition-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .nutrition-table th,
+        .nutrition-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .nutrition-table th {
+            background: #ff6b35;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nutrition-table tr:hover {
+            background: #f8f9fa;
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            color: white;
+            text-align: center;
+        }
+
+        .contact-item h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .features {
+            display: grid;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .feature-item {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #ff6b35;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .feature-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            font-size: 2.5em;
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ff6b35, #ffa500);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(255,107,53,0.3);
+        }
+        
+        .feature-title {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+        }
+        
+        .feature-description {
+            color: #666;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .feature-item {
+            background: rgba(255,255,255,0.85);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            padding: 1rem 2rem 1rem 4.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .feature-item:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 16px 48px rgb(251, 208, 136);
+        }
+
+        .benefit-cardd {
+            background: rgba(255,255,255,0.85);
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+            padding: 1rem 2rem 1rem 4.5rem;
+            position: relative;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .benefit-cardd:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 16px 48px rgb(251, 208, 136);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .banner-container {
+                gap: 30px;
+            }
+            
+            .main-title {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 968px) {
+            .banner-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .main-title {
+                font-size: 2.5rem;
+            }
+
+            .products-display {
+                height: 300px;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .product-flex {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .product-image-leaf {
+                margin-top: 2rem;
+            }
+
+            .leaf-box {
+                margin: 0 auto;
+            }
+
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .banner {
+                min-height: 400px;
+                padding: 100px 0 40px;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .subtitle {
+                font-size: 1rem;
+            }
+
+            .products-display {
+                height: 250px;
+            }
+
+            .product-item {
+                width: 60px;
+                height: 80px;
+                font-size: 2rem;
+            }
+
+            .product-flex {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .leaf-box {
+                width: 280px;
+                height: 280px;
+                margin-top: 50px;
+            }
+
+            .feature-item {
+                padding: 25px;
+            }
+            
+            .feature-icon {
+                font-size: 2em;
+                width: 50px;
+                height: 50px;
+                margin-right: 15px;
+            }
+            
+            .feature-title {
+                font-size: 1.5em;
+            }
+            
+            .feature-description {
+                font-size: 1em;
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nutrition-table {
+                margin: 0 15px;
+            }
+
+            .final-cta input[type="email"] {
+                min-width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 1.8rem;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .btn-primary {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+
+            .play-icon {
+                width: 40px;
+                height: 40px;
+            }
+
+            .product-item img {
+                width: 100%;
+                height: auto;
+            }
+
+            .feature-item {
+                padding: 15px;
+            }
+
+            .benefit-cardd {
+                padding: 15px;
+            }
+
+            .nutrition-table th,
+            .nutrition-table td {
+                padding: 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            .final-cta input[type="email"] {
+                min-width: 150px;
+                font-size: 0.9rem;
+            }
+
+            .final-cta button {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Add hamburger menu for mobile */
+        @media (max-width: 768px) {
+            .nav {
+                position: relative;
+            }
+
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                padding: 10px;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 3px;
+                background: white;
+                margin: 5px 0;
+                transition: 0.3s;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 107, 53, 0.95);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: 0.3s;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* iPhone 12 Pro specific styles */
+        @media only screen 
+        and (device-width: 390px) 
+        and (device-height: 844px) 
+        and (-webkit-device-pixel-ratio: 3) {
+            .container {
+                padding: 0 10px;
+            }
+
+            .header {
+                padding: 0.8rem 0;
+            }
+
+            .logo img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+            }
+
+            .banner {
+                padding: 80px 0 30px;
+                min-height: 350px;
+            }
+
+            .main-title {
+                font-size: 1.8rem;
+                line-height: 1.3;
+            }
+
+            .subtitle {
+                font-size: 0.9rem;
+                margin-bottom: 25px;
+            }
+
+            .buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-primary {
+                width: 100%;
+                text-align: center;
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .btn-play {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .products-display {
+                height: 200px;
+            }
+
+            .product-item img {
+                max-width: 120px;
+                height: auto;
+            }
+
+            .product-platform {
+                display: none;
+            }
+
+            .feature-item {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .feature-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.5em;
+            }
+
+            .feature-title {
+                font-size: 1.2em;
+            }
+
+            .feature-description {
+                font-size: 0.9em;
+            }
+
+            .benefit-cardd {
+                padding: 15px;
+                margin-bottom: 15px;
+            }
+
+            .benefit-icon {
+                font-size: 2em;
+            }
+
+            .benefit-cardd h3 {
+                font-size: 1.2em;
+            }
+
+            .benefit-cardd p {
+                font-size: 0.9em;
+            }
+
+            .nutrition-table {
+                margin: 0 10px;
+            }
+
+            .nutrition-table th,
+            .nutrition-table td {
+                padding: 0.7rem;
+                font-size: 0.85rem;
+            }
+
+            .final-cta {
+                padding: 40px 0;
+            }
+
+            .final-cta input[type="email"] {
+                min-width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .final-cta button {
+                width: 100%;
+                padding: 12px 20px;
+            }
+
+            .contact-info {
+                gap: 1.5rem;
+            }
+
+            .contact-item {
+                width: 100%;
+                text-align: center;
+            }
+
+            .contact-item h4 {
+                font-size: 1.1em;
+            }
+
+            .contact-item a,
+            .contact-item div {
+                font-size: 0.9em;
+            }
+
+            /* Optimize hamburger menu for iPhone */
+            .hamburger {
+                padding: 8px;
+            }
+
+            .hamburger span {
+                width: 22px;
+                height: 2px;
+            }
+
+            .nav-links {
+                top: 70px;
+                padding: 1.5rem 0;
+            }
+
+            .nav-links li {
+                margin: 1.2rem 0;
+            }
+
+            .nav-links a {
+                font-size: 1.1rem;
+            }
+
+            /* Fix for iPhone notch */
+            .header {
+                padding-top: env(safe-area-inset-top);
+            }
+
+            /* Optimize touch targets */
+            .nav-links a,
+            .btn-primary,
+            .btn-play,
+            .feature-item,
+            .benefit-cardd {
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+        /* Additional iPhone 12 Pro landscape mode */
+        @media only screen 
+        and (device-width: 844px) 
+        and (device-height: 390px) 
+        and (-webkit-device-pixel-ratio: 3) {
+            .banner {
+                min-height: 300px;
+                padding: 60px 0 20px;
+            }
+
+            .banner-container {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .main-title {
+                font-size: 1.6rem;
+            }
+
+            .products-display {
+                height: 180px;
+            }
+
+            .feature-item,
+            .benefit-cardd {
+                padding: 12px;
+            }
+        }
+
+        /* Responsive fix for iPhone 12 Pro and small screens */
+        @media (max-width: 430px) {
+            .header {
+                padding: 0.5rem 0;
+            }
+            .logo img {
+                width: 32px !important;
+                height: 32px !important;
+            }
+            .logo {
+                font-size: 1.1rem !important;
+            }
+            .banner {
+                padding: 70px 0 20px !important;
+                min-height: 320px !important;
+            }
+            .main-title {
+                font-size: 1.2rem !important;
+                line-height: 1.2 !important;
+            }
+            .subtitle {
+                font-size: 0.85rem !important;
+                margin-bottom: 18px !important;
+            }
+            .buttons {
+                flex-direction: column !important;
+                align-items: center !important;
+                gap: 10px !important;
+            }
+            .btn-primary {
+                width: 90% !important;
+                font-size: 0.95rem !important;
+                padding: 10px 0 !important;
+                margin: 0 auto !important;
+                display: block !important;
+            }
+            .btn-play {
+                width: 90% !important;
+                justify-content: center !important;
+                font-size: 0.95rem !important;
+                padding: 10px 0 !important;
+                margin: 0 auto !important;
+                display: flex !important;
+            }
+            .play-icon {
+                width: 32px !important;
+                height: 32px !important;
+                font-size: 1.1rem !important;
+            }
+            .products-display {
+                height: 120px !important;
+                min-height: 100px !important;
+            }
+            .product-item {
+                width: 60px !important;
+                height: 70px !important;
+                left: 0 !important;
+                right: 0 !important;
+                margin: 0 auto !important;
+            }
+            .product-item img {
+                width: 70px !important;
+                height: 70px !important;
+                max-width: 100% !important;
+                object-fit: contain !important;
+            }
+            .product-platform {
+                display: none !important;
+            }
+            .decoration-circle {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <div class="logo"><a href="https://elogi.vn/" class="logo">
+                <img src="img/logo_tachnen.png" alt="Elogi" style="width: 50px; height: 50px;">
+                ELOGI
+            </a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#product">Sản phẩm</a></li>
+                <li><a href="#benefits">Lợi ích</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="banner">
+        <div class="banner-container">
+            <div class="banner-content">
+                <h1 class="main-title">
+                    Vị ngọt tự nhiên,<br>
+                    chúng tôi làm<br>
+                    nên điều đó!
+                </h1>
+                <p class="subtitle">
+                    Đu đủ sấy cao cấp được chế biến từ những trái đu đủ tươi ngon nhất, 
+                    mang đến hương vị tự nhiên và dinh dưỡng tốt nhất cho sức khỏe gia đình bạn.
+                </p>
+                <div class="buttons">
+                    <a href="https://elogi.vn/" class="btn-primary">Mua Ngay</a>
+                    <button class="btn-play">
+                        <div class="play-icon">▶</div>
+                        <a href="https://www.youtube.com/watch?v=ni0LOGgPOr4" style="text-decoration: none; color: white;">Xem video</a>
+                    </button>
+                </div>
+            </div>
+
+            <div class="products-display">
+                <div class="decoration-circle"></div>
+                <div class="product-stage">
+                    <div class="product-platform platform-1"></div>
+                    <div class="product-platform platform-2"></div>
+                    <div class="product-platform platform-3"></div>
+                    
+                    <div class="product-item product-1">
+                        <img src="img/trai_tachnen.png" alt="Elogi" style="width: 300px; height: 270px;">
+                        </a></div>
+                    <div class="product-item product-2">
+                        <img src="img/dududasay_tachnen.webp" alt="Elogi" style="width: 150px; height: 150px;">
+                        </a></div>
+                    <div class="product-item product-3">
+                        <img src="img/sayroi_tachnen.png" alt="Elogi" style="width: 150px; height: 170px;">
+                        </a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="product" class="product-section">
+        <div class="product-section-home-link">Về Trang Chủ</div>
+        <div class="product-flex">
+            <div class="features">
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <div class="feature-icon">🌿</div>
+                        <h3 class="feature-title">100% Tự Nhiên</h3>
+                    </div>
+                    <p class="feature-description">Được sấy khô từ đu đủ tươi ngon, không chất bảo quản, không màu nhân tạo</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <div class="feature-icon">👶</div>
+                        <h3 class="feature-title">An Toàn Cho Trẻ Em</h3>
+                    </div>
+                    <p class="feature-description">Kết cấu mềm dai, dễ nhai, phù hợp với hệ tiêu hóa nhạy cảm của trẻ nhỏ</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <div class="feature-icon">⚡</div>
+                        <h3 class="feature-title">Năng Lượng Tức Thì</h3>
+                    </div>
+                    <p class="feature-description">Đường tự nhiên cung cấp năng lượng nhanh chóng cho hoạt động hàng ngày</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-header">
+                        <div class="feature-icon">📦</div>
+                        <h3 class="feature-title">Bảo Quản Lâu Dài</h3>
+                    </div>
+                    <p class="feature-description">Có thể bảo quản 6-12 tháng ở nhiệt độ phòng, tiện lợi mang theo mọi lúc</p>
+                </div>
+            </div>
+            <div class="product-image-leaf">
+                <div class="leaf-box">
+                    <div class="leaf-box-text"><img src="img/baobi_tachnen.png" alt="Elogi" style="width: 300px; height: 380px;">
+            </a></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2 class="animate-on-scroll">Lợi Ích Sức Khỏe</h2>
+            <div class="benefits-grid">
+                <div class="benefit-cardd">
+                    <div class="benefit-icon">🍎</div>
+                    <h3>Tăng Cường Miễn Dịch</h3>
+                    <p>Giàu vitamin C giúp tăng cường hệ miễn dịch và chống oxy hóa hiệu quả.</p>
+                </div>
+                <div class="benefit-cardd">
+                    <div class="benefit-icon">💪</div>
+                    <h3>Hỗ Trợ Tiêu Hóa</h3>
+                    <p>Chứa enzyme papain giúp tiêu hóa protein và cải thiện hệ tiêu hóa.</p>
+                </div>
+                <div class="benefit-cardd">
+                    <div class="benefit-icon">❤️</div>
+                    <h3>Tốt Cho Tim Mạch</h3>
+                    <p>Ít calo, nhiều chất xơ giúp duy trì cholesterol ở mức ổn định.</p>
+                </div>
+                <div class="benefit-cardd">
+                    <div class="benefit-icon">✨</div>
+                    <h3>Đẹp Da Tự Nhiên</h3>
+                    <p>Vitamin A và C giúp làn da khỏe mạnh, mịn màng và rạng rỡ.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="nutrition">
+        <div class="container">
+            <h2 class="animate-on-scroll">Thành Phần Dinh Dưỡng</h2>
+            <div class="nutrition-table animate-on-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Chất dinh dưỡng</th>
+                            <th>Hàm lượng (100g)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Calo</td>
+                            <td>320 kcal</td>
+                        </tr>
+                        <tr>
+                            <td>Carbohydrate</td>
+                            <td>80g</td>
+                        </tr>
+                        <tr>
+                            <td>Chất xơ</td>
+                            <td>8g</td>
+                        </tr>
+                        <tr>
+                            <td>Protein</td>
+                            <td>2g</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin C</td>
+                            <td>180mg</td>
+                        </tr>
+                        <tr>
+                            <td>Vitamin A</td>
+                            <td>950 IU</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="final-cta">
+        <div class="container">
+            <div style="text-align: center; color: white; margin-bottom: 2rem;">
+                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Đăng nhập để biết thêm thông tin về chúng tôi.</p>
+                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
+                    <input type="email" placeholder="Enter Email Address" style="padding: 10px 20px; border: none; border-radius: 25px; font-size: 1rem; min-width: 300px;">
+                    <button style="background: #ffeb3b; color: #333; padding: 10px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1rem;">Gửi</button>
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; color: white; margin-top: 3rem; flex-wrap: wrap; gap: 2rem;">
+                <div style="flex: 1; min-width: 200px;">
+                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; justify-content: center;">
+                        <div style="width: 40px; height: 40px; background: #ffeb3b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">🌿</div>
+                        <div>
+                            <div style="font-weight: bold; font-size: 1.2rem;">Đu đủ sấy</div>
+                            <div style="font-size: 0.9rem;">Công ty TNHH ABC</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Trang chủ</a></div>
+                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Sản phẩm</a></div>
+                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Shop</a></div>
+                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Giới thiệu</a></div>
+                        <div><a href="#" style="color: white; text-decoration: none;">Liên hệ</a></div>
+                    </div>
+                </div>
+
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="margin-bottom: 1rem;">Dịch vụ</h4>
+                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Hướng Dẫn Mua Hàng/Đặt Hàng</a></div>
+                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Trả Hàng/Hoàn Tiền</a></div>
+                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Trung Tâm Trợ Giúp</a></div>
+                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Điều Khoản Shopee</a></div>
+                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Chính Sách Bảo Mật</a></div>
+                    <div><a href="#" style="color: white; text-decoration: none;">Chính Sách Bảo Hành</a></div>
+                </div>
+
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="margin-bottom: 1rem;">Theo dõi chúng tôi</h4>
+                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Facebook</a></div>
+                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Instagram</a></div>
+                    <div><a href="#" style="color: white; text-decoration: none;">Contact</a></div>
+                </div>
+
+                <div style="flex: 1; min-width: 200px;">
+                    <h4 style="margin-bottom: 1rem;">Liên hệ</h4>
+                    <div style="margin-bottom: 0.5rem;">Email: dudusay@gmail.com</div>
+                    <div style="margin-bottom: 0.5rem;">SĐT: +1 234 567 890</div>
+                    <div>Địa chỉ: 68 abc</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Elogi - Đu Đủ Sấy Cao Cấp. Tất cả quyền được bảo lưu.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu functionality
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 107, 53, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #ff6b35, #f7931e)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // Add floating animation to CTA buttons
+        document.querySelectorAll('.cta-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.animation = 'pulse 0.6s infinite alternate';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.animation = 'none';
+            });
+        });
+
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0% { transform: translateY(-3px) scale(1); }
+                100% { transform: translateY(-3px) scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
