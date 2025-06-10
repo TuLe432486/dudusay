@@ -127,9 +127,9 @@
             font-size: 3.5rem;
             font-weight: 700;
             line-height: 1.1;
-            color: #ff932e;
+            color: #ff6b35;
             margin-bottom: 20px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            text-shadow: 0 2px 10px white;
         }
 
         .subtitle {
@@ -1193,6 +1193,62 @@
         .caydudu_leaf{
             width: 50px;
         }
+        .footer-flex-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .footer-col {
+            flex: 1 1 200px;
+            min-width: 200px;
+            color: #222;
+            text-align: left;
+        }
+        .footer-logo-col {
+            min-width: 220px;
+            max-width: 220px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .footer-subscribe-form input[type="email"] {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            min-width: 300px;
+            outline: none;
+        }
+        .footer-subscribe-form button {
+            background: #ffe066;
+            color: #333;
+            padding: 12px 36px;
+            border: none;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background 0.2s;
+        }
+        .footer-subscribe-form button:hover {
+            background: #ffd700;
+        }
+        @media (max-width: 900px) {
+            .footer-flex-row {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .footer-col {
+                min-width: 180px;
+                text-align: center;
+            }
+            .footer-logo-col {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1381,54 +1437,42 @@
 
     <section id="contact" class="final-cta">
         <div class="container">
-            <div style="text-align: center; color: white; margin-bottom: 2rem;">
-                <p style="font-size: 1.2rem; margin-bottom: 1rem;">Đăng nhập để biết thêm thông tin về chúng tôi.</p>
-                <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem;">
-                    <input type="email" placeholder="Enter Email Address" style="padding: 10px 20px; border: none; border-radius: 25px; font-size: 1rem; min-width: 300px;">
-                    <button style="background: #ffeb3b; color: #333; padding: 10px 30px; border: none; border-radius: 25px; font-weight: bold; cursor: pointer; font-size: 1rem;">Gửi</button>
-                </div>
+            <div class="footer-subscribe" style="margin-bottom: 32px;">
+                <div class="footer-subscribe-text" style="font-size: 2rem; font-weight: bold; margin-bottom: 1.5rem; color: #222; text-align: center;">Đăng nhập để biết thêm thông tin về chúng tôi.</div>
+                <form class="footer-subscribe-form" style="justify-content: center;">
+                    <input type="email" placeholder="Enter Email Address" required>
+                    <button type="submit">Gửi</button>
+                </form>
             </div>
-            
-            <div style="display: flex; justify-content: space-between; color: white; margin-top: 3rem; flex-wrap: wrap; gap: 2rem;">
-                <div style="flex: 1; min-width: 200px;">
-                    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 2rem; justify-content: center;">
-                        <div style="width: 40px; height: 40px; background: #ffeb3b; border-radius: 50%; display: flex; align-items: center; justify-content: center;">🌿</div>
-                        <div>
-                            <div style="font-weight: bold; font-size: 1.2rem;">Đu đủ sấy</div>
-                            <div style="font-size: 0.9rem;">Công ty TNHH ABC</div>
-                        </div>
-                    </div>
-                    <div>
-                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Trang chủ</a></div>
-                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Sản phẩm</a></div>
-                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Shop</a></div>
-                        <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Giới thiệu</a></div>
-                        <div><a href="#" style="color: white; text-decoration: none;">Liên hệ</a></div>
-                    </div>
+            <div class="footer-flex-row" style="margin-bottom: 0; align-items: flex-start;">
+                <div class="footer-col">
+                    <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem; color: #222;">Đu đủ sấy</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Trang chủ</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Sản phẩm</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Shop</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Giới thiệu</div>
+                    <div style="color: #222;">Liên hệ</div>
                 </div>
-
-                <div style="flex: 1; min-width: 200px;">
-                    <h4 style="margin-bottom: 1rem;">Dịch vụ</h4>
-                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Hướng Dẫn Mua Hàng/Đặt Hàng</a></div>
-                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Trả Hàng/Hoàn Tiền</a></div>
-                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Trung Tâm Trợ Giúp</a></div>
-                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Điều Khoản Shopee</a></div>
-                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Chính Sách Bảo Mật</a></div>
-                    <div><a href="#" style="color: white; text-decoration: none;">Chính Sách Bảo Hành</a></div>
+                <div class="footer-col">
+                    <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem; color: #222;">Dịch vụ</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Hướng Dẫn Mua Hàng/Đặt Hàng</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Trả Hàng/Hoàn Tiền</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Trung Tâm Trợ Giúp</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Điều Khoản Shopee</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Chính Sách Bảo Mật</div>
+                    <div style="color: #222;">Chính Sách Bảo Hành</div>
                 </div>
-
-                <div style="flex: 1; min-width: 200px;">
-                    <h4 style="margin-bottom: 1rem;">Theo dõi chúng tôi</h4>
-                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Facebook</a></div>
-                    <div style="margin-bottom: 0.5rem;"><a href="#" style="color: white; text-decoration: none;">Instagram</a></div>
-                    <div><a href="#" style="color: white; text-decoration: none;">Contact</a></div>
+                <div class="footer-col">
+                    <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem; color: #222;">Theo dõi chúng tôi</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Facebook</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Instagram</div>
+                    <div style="color: #222;">Contact</div>
                 </div>
-
-                <div style="flex: 1; min-width: 200px;">
-                    <h4 style="margin-bottom: 1rem;">Liên hệ</h4>
-                    <div style="margin-bottom: 0.5rem;">Email: dudusay@gmail.com</div>
-                    <div style="margin-bottom: 0.5rem;">SĐT: +1 234 567 890</div>
-                    <div>Địa chỉ: 68 abc</div>
+                <div class="footer-col">
+                    <div style="font-weight: bold; font-size: 1.1rem; margin-bottom: 1rem; color: #222;">Liên hệ</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">Email: dudusay@gmail.com</div>
+                    <div style="color: #222; margin-bottom: 0.5rem;">SĐT: +1 234 567 890</div>
+                    <div style="color: #222;">Địa chỉ: 68 abc</div>
                 </div>
             </div>
         </div>
