@@ -736,9 +736,27 @@
                 display: none;
             }
 
+            .review-car {
+                padding: 30px;
+            }
+
+            .reviews-gri, .stats-sectio {
+                grid-template-columns: 1fr;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            .section-titl {
+                font-size: 2.5rem;
+            }
+
             .banner {
                 min-height: 400px;
                 padding: 100px 0 40px;
+            }
+
+            .reviews-sectio {
+                padding: 40px 20px;
             }
 
             .main-title {
@@ -1249,6 +1267,209 @@
                 max-width: 100%;
             }
         }
+        .reviews-sectio {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #faf8f3 20%, #FFF8DC 100%);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        .section-heade {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-titl {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(45deg, #FF8C00, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section-subtitl {
+            font-size: 1.3rem;
+            color: rgba(255, 165, 0, 0.8);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .reviews-gri {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+            margin-left: 140px;
+            margin-right: 140px;
+        }
+        /* Loading animations */
+        .review-car {
+            animation: slideUp 0.6s ease-out;
+        }
+
+        .review-car:nth-child(1) { animation-delay: 0.1s; }
+        .review-car:nth-child(2) { animation-delay: 0.2s; }
+        .review-car:nth-child(3) { animation-delay: 0.3s; }
+
+        .review-car:hover .quote-mar {
+            color: rgba(255, 215, 0, 0.5);
+            transform: scale(1.1);
+        }
+        .review-car:hover .review-tex {
+            color: #2c3e50;
+        }
+        .review-car:hover .star {
+            animation: sparkle 0.6s ease-in-out;
+        }
+
+        .review-car:hover .star:nth-child(1) { animation-delay: 0s; }
+        .review-car:hover .star:nth-child(2) { animation-delay: 0.1s; }
+        .review-car:hover .star:nth-child(3) { animation-delay: 0.2s; }
+        .review-car:hover .star:nth-child(4) { animation-delay: 0.3s; }
+        .review-car:hover .star:nth-child(5) { animation-delay: 0.4s; }
+
+        .review-car:hover .avata {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .review-car:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px #fb926d;
+            border-color: #ff6b35;
+        }
+
+        .review-car:hover::before {
+            opacity: 1;
+        }
+
+        .review-car {
+            background: white;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .review-car::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .quote-mar {
+            font-size: 4rem;
+            color: rgba(255, 215, 0, 0.3);
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-family: serif;
+            transition: all 0.3s ease;
+        }
+
+        .review-car:hover .quote-mar {
+            color: #fd8154;
+            transform: scale(1.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid rgba(255, 215, 0, 0.2);
+        }
+        .review-heade {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 2;
+        }
+        .avata {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background: url("img/nữ.png");
+        background-size: cover;
+        background-position: center;
+        }
+
+        .review-car:hover .avata {
+            transform: scale(1.1) rotate(5deg);
+        }
+        .customer-inf h3 {
+            color: #ff6b35;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .customer-rol {
+            color: rgba(255, 165, 0, 0.7);
+            font-size: 0.95rem;
+        }
+        .stars {
+            display: flex;
+            gap: 0.3rem;
+        }
+
+        .star {
+            color: #FFD700;
+            font-size: 1.2rem;
+            text-shadow: 0 1px 2px rgba(255, 215, 0, 0.3);
+        }
+        .stats-sectio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            margin-left: 140px;
+            margin-right: 140px;
+        }
+        .stat-car:hover .stat-numbe {
+            transform: scale(1.1);
+        }
+        .stat-car:hover {
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        .stat-car {
+            text-align: center;
+            background: linear-gradient(rgb(251, 241, 201));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+        .stat-numbe {
+            font-size: 3rem;
+            font-weight: 800;
+            color: #ff8153;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-car:hover .stat-numbe {
+            transform: scale(1.1);
+        }
+        .stat-labe {
+            color: rgba(255, 165, 0, 0.8);
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body>
@@ -1269,6 +1490,7 @@
                 <li><a href="#product">Sản phẩm</a></li>
                 <li><a href="#benefits">Lợi ích</a></li>
                 <li><a href="#contact">Liên hệ</a></li>
+                <li><a href="#reviews-sectio">Đánh giá</a></li>
             </ul>
         </nav>
     </header>
@@ -1431,6 +1653,92 @@
                     </table>
                 </div>
                 <div class="caydudu_leaf2"><img src="img/caydudu_tn.png" alt="Cây đu đủ"></div>
+            </div>
+        </div>
+    </section>
+
+    <!--Đánh giá khách hàng-->
+    <section class="reviews-sectio" id="reviews-sectio">
+        <div class="section-heade">
+            <h2 class="section-titl">Khách Hàng Nói Gì</h2>
+            <p class="section-subtitl">Hàng nghìn khách hàng đã tin tưởng và hài lòng với dịch vụ của chúng tôi</p>
+        </div>
+
+        <div class="reviews-gri">
+            <div class="review-car">
+                <div class="quote-mar">"</div>
+                <div class="review-heade">
+                    <div class="avata"></div>
+                    <div class="customer-inf">
+                        <h3>Anh Nguyễn</h3>
+                        <p class="customer-rol">CEO Startup Tech</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="review-tex">Dịch vụ tuyệt vời! Đội ngũ chuyên nghiệp, tận tâm và luôn lắng nghe khách hàng. Tôi đã hợp tác với họ được 2 năm và chưa bao giờ thất vọng.</p>
+            </div>
+
+            <div class="review-car">
+                <div class="quote-mar">"</div>
+                <div class="review-heade">
+                    <div class="avata"></div>
+                    <div class="customer-inf">
+                        <h3>Minh Thư</h3>
+                        <p class="customer-rol">Giám đốc Marketing</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="review-tex">Mùi thơm tự nhiên, không quá ngọt, rất hợp cho người ăn kiêng. Tôi thường mua làm quà biếu, ai cũng khen ngon và đẹp mắt. Sẽ tiếp tục ủng hộ lâu dài!</p>
+            </div>
+
+            <div class="review-car">
+                <div class="quote-mar">"</div>
+                <div class="review-heade">
+                    <div class="avata"></div>
+                    <div class="customer-inf">
+                        <h3>Quang Huy</h3>
+                        <p class="customer-rol">Chủ cửa hàng</p>
+                    </div>
+                </div>
+                <div class="stars">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p class="review-tex">Đu đủ sấy mềm, dẻo, không bị khô quá như nhiều nơi khác. Sản phẩm bán chạy, khách mua xong hay quay lại mua thêm. Giá hợp lý, lợi nhuận tốt.</p>
+            </div>
+        </div>
+
+        <div class="stats-sectio">
+            <div class="stat-car">
+                <div class="stat-numbe">5000+</div>
+                <div class="stat-labe">Khách hàng hài lòng</div>
+            </div>
+            <div class="stat-car">
+                <div class="stat-numbe">4.9/5</div>
+                <div class="stat-labe">Đánh giá trung bình</div>
+            </div>
+            <div class="stat-car">
+                <div class="stat-numbe">98%</div>
+                <div class="stat-labe">Tỷ lệ giữ chân</div>
+            </div>
+            <div class="stat-car">
+                <div class="stat-numbe">24/7</div>
+                <div class="stat-labe">Hỗ trợ khách hàng</div>
             </div>
         </div>
     </section>
