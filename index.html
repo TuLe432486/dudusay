@@ -312,8 +312,137 @@
 
         /* Product Section */
         .product-section {
-            padding: 80px 0;
-            background: linear-gradient(to bottom, #fff, #f8f9fa);
+            background: #fff3e6;
+            border-radius: 32px;
+            border: 6px solid #ff9a56;
+            box-shadow: 0 8px 40px rgba(255, 107, 53, 0.08);
+            padding: 40px 0;
+            margin: 40px 0;
+            max-width: 98vw;
+            overflow: hidden;
+        }
+        .product-section .container {
+            background: none;
+            box-shadow: none;
+            border-radius: 0;
+            backdrop-filter: none;
+        }
+        .product-image {
+            background: none;
+            min-height: unset;
+            padding: 0;
+        }
+        .main-image-container {
+            background: linear-gradient(135deg, #ff8c00, #ff6347, #ffd700);
+            border-radius: 28px;
+            box-shadow: 0 8px 60px rgba(255, 107, 53, 0.15);
+            margin: 0 auto;
+            width: 700px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Đảm bảo hiệu ứng không bị tràn */
+            transition: box-shadow 0.3s;
+        }
+        .main-image-container.animate-bounce {
+            animation: bounceImage 0.5s cubic-bezier(.36,.07,.19,.97) both;
+            box-shadow: 0 16px 80px 0 rgba(255, 107, 53, 0.25);
+        }
+        @keyframes bounceImage {
+            0%   { transform: scale(1); }
+            20%  { transform: scale(1.04, 0.96); }
+            40%  { transform: scale(0.98, 1.02); }
+            60%  { transform: scale(1.02, 0.98); }
+            80%  { transform: scale(0.99, 1.01); }
+            100% { transform: scale(1); }
+        }
+        /* Hiệu ứng chuyển động khi đổi hình */
+        .slide-out {
+            animation: slideOut 0.35s forwards;
+        }
+        .slide-in {
+            animation: slideIn 0.35s forwards;
+        }
+        @keyframes slideOut {
+            0% { opacity: 1; transform: translateX(0) scale(1); }
+            100% { opacity: 0; transform: translateX(-40px) scale(0.95); }
+        }
+        @keyframes slideIn {
+            0% { opacity: 0; transform: translateX(40px) scale(1.05); }
+            100% { opacity: 1; transform: translateX(0) scale(1); }
+        }
+        .thumbnails {
+            display: flex;
+            gap: 24px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+        .thumbnail {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #ffb347, #ff8c00 80%);
+            box-shadow: 0 4px 18px rgba(255, 107, 53, 0.10);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            border: none;
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .thumbnail.active {
+            box-shadow: 0 0 0 4px #ff6b35, 0 8px 24px rgba(255, 107, 53, 0.18);
+            background: linear-gradient(135deg, #ffb347, #ff6b35 80%);
+            transform: scale(1.08);
+        }
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .floating-element {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background: #ffd18c;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        @keyframes floatAround {
+            0%   { transform: translate(0, 0) scale(1);}
+            25%  { transform: translate(30px, -20px) scale(1.1);}
+            50%  { transform: translate(-20px, 30px) scale(0.95);}
+            75%  { transform: translate(-30px, -10px) scale(1.05);}
+            100% { transform: translate(0, 0) scale(1);}
+        }
+        @media (max-width: 700px) {
+            .main-image-container {
+                width: 98vw;
+                height: 220px;
+                min-width: 0;
+            }
+            .thumbnails {
+                gap: 10px;
+                margin-top: 18px;
+            }
+            .thumbnail {
+                width: 44px;
+                height: 44px;
+                font-size: 1.2rem;
+                border-radius: 10px;
+            }
+            .product-section {
+                border-radius: 16px;
+                border-width: 3px;
+                padding: 10px 0;
+                margin: 10px 0;
+            }
         }
         .product-flex {
             display: flex;
@@ -1528,7 +1657,7 @@
                         <img src="img/trai_tachnen.png" alt="Elogi" style="width: 300px; height: 270px;">
                         </a></div>
                     <div class="product-item product-2">
-                        <img src="img/dududasay_tachnen.webp" alt="Elogi" style="width: 150px; height: 150px;">
+                        <img src="img/dududasay_tachnen.webp" alt="Elogi" style="width: 150px; height: 150px; background: transparent;">
                         </a></div>
                     <div class="product-item product-3">
                         <img src="img/sayroi_tachnen.png" alt="Elogi" style="width: 150px; height: 170px;">
@@ -1538,46 +1667,54 @@
         </div>
     </section>
 
-    <section id="product" class="product-section">
-        <div class="product-section-home-link">Về Trang Chủ</div>
-        <div class="product-flex">
-            <div class="features">
-                <div class="feature-item">
-                    <div class="feature-header">
-                        <div class="feature-icon">🌿</div>
-                        <h3 class="feature-title">100% Tự Nhiên</h3>
-                    </div>
-                    <p class="feature-description">Được sấy khô từ đu đủ tươi ngon, không chất bảo quản, không màu nhân tạo</p>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-header">
-                        <div class="feature-icon">👶</div>
-                        <h3 class="feature-title">An Toàn Cho Trẻ Em</h3>
-                    </div>
-                    <p class="feature-description">Kết cấu mềm dai, dễ nhai, phù hợp với hệ tiêu hóa nhạy cảm của trẻ nhỏ</p>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-header">
-                        <div class="feature-icon">⚡</div>
-                        <h3 class="feature-title">Năng Lượng Tức Thì</h3>
-                    </div>
-                    <p class="feature-description">Đường tự nhiên cung cấp năng lượng nhanh chóng cho hoạt động hàng ngày</p>
-                </div>
-                
-                <div class="feature-item">
-                    <div class="feature-header">
-                        <div class="feature-icon">📦</div>
-                        <h3 class="feature-title">Bảo Quản Lâu Dài</h3>
-                    </div>
-                    <p class="feature-description">Có thể bảo quản 6-12 tháng ở nhiệt độ phòng, tiện lợi mang theo mọi lúc</p>
-                </div>
+    <section class="product-section">
+        <div class="container" style="position:relative;">
+            <div class="floating-elements">
+                <div class="floating-element" style="left: 5%; top: 24px; animation-delay: 0s;"></div>
+                <div class="floating-element" style="left: 20%; top: 18px; animation-delay: 1s;"></div>
+                <div class="floating-element" style="left: 38%; top: 22px; animation-delay: 2s;"></div>
+                <div class="floating-element" style="left: 56%; top: 18px;"></div>
+                <div class="floating-element" style="left: 74%; top: 24px;"></div>
+                <div class="floating-element" style="left: 90%; top: 20px;"></div>
             </div>
-            <div class="product-image-leaf">
-                <div class="leaf-box">
-                    <div class="leaf-box-text"><img src="img/baobi_tachnen.png" alt="Elogi" style="width: 300px; height: 380px;">
-            </a></div>
+            <div class="product-grid">
+                <div class="product-image">
+                    <div class="image-gallery">
+                        <div class="main-image-container">
+                            <div class="main-image" id="mainImage">
+                                <div class="papaya-display" id="papayaDisplay">
+                                    <!-- Default: Đu đủ nguyên quả -->
+                                    <div class="papaya-whole"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="thumbnails">
+                            <div class="thumbnail active" onclick="showImage('whole')">
+                                <div class="thumbnail-content thumb-whole">🥭</div>
+                            </div>
+                            <div class="thumbnail" onclick="showImage('slices')">
+                                <div class="thumbnail-content thumb-slices">🥭</div>
+                            </div>
+                            <div class="thumbnail" onclick="showImage('strips')">
+                                <div class="thumbnail-content thumb-strips">🥭</div>
+                            </div>
+                            <div class="thumbnail" onclick="showImage('powder')">
+                                <div class="thumbnail-content thumb-powder">🥭</div>
+                            </div>
+                            <div class="thumbnail" onclick="showImage('package')">
+                                <div class="thumbnail-content thumb-package">🥭</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="floating-elements">
+                        <div class="floating-element" style="left: 10%; animation-delay: 0s;"></div>
+                        <div class="floating-element" style="left: 30%; animation-delay: 2s;"></div>
+                        <div class="floating-element" style="left: 50%; animation-delay: 4s;"></div>
+                        <div class="floating-element" style="left: 70%; animation-delay: 6s;"></div>
+                        <div class="floating-element" style="right: 10%; animation-delay: 1s;"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1882,6 +2019,234 @@
             }
         `;
         document.head.appendChild(style);
+
+        // Gallery functionality
+        const imageTemplates = {
+            whole: `
+            <div class="papaya-whole" style="background: transparent;">
+                <div class="papaya-package" style="background: transparent;">
+                    <div class="package-label" style="background: transparent;">
+                        <img src="img/caydudu_tn.png" style="background: transparent; width: 82%; height: 82%; margin-left: 10%;">
+                    </div>
+                </div>
+            `,
+            slices: `
+                <div class="papaya-slices" style="background: transparent;">
+                    <div class="slice" style="--delay: 0s;"></div>
+                    <div class="slice" style="--delay: 0.3s;"></div>
+                    <div class="slice" style="--delay: 0.6s;"></div>
+                    <div class="slice" style="--delay: 0.9s;"></div>
+                    <div class="slice" style="--delay: 1.2s;"></div>
+                    <div class="slice" style="--delay: 1.5s;"></div>
+                </div>
+                <div class="papaya-package" style="background: transparent;">
+                    <div class="package-label" style="background: transparent;">
+                        <img src="img/trai_tachnen.png" style="background: transparent; width: 85%; height: 85%; margin-left: 10%;">
+                    </div>
+                </div>
+            `,
+            strips: `
+                <div class="papaya-strips" style="background: transparent;">
+                    <div class="strip" style="--delay: 0s;"></div>
+                    <div class="strip" style="--delay: 0.2s;"></div>
+                    <div class="strip" style="--delay: 0.4s;"></div>
+                    <div class="strip" style="--delay: 0.6s;"></div>
+                    <div class="strip" style="--delay: 0.8s;"></div>
+                </div>
+                <div class="papaya-package" style="background: transparent;">
+                    <div class="package-label" style="background: transparent;">
+                        <img src="img/hinhphongto.png" style="background: transparent;width: 65%; height: 65%; margin-left: 20%;">
+                    </div>
+                </div>
+            `,
+            powder: `
+                <div class="papaya-powder" style="background: transparent;">
+                    <div class="powder-particles">
+                        <div class="particle" style="--delay: 0s; --x: 10px; --y: -15px;"></div>
+                        <div class="particle" style="--delay: 0.5s; --x: -12px; --y: -10px;"></div>
+                        <div class="particle" style="--delay: 1s; --x: 15px; --y: 8px;"></div>
+                        <div class="particle" style="--delay: 1.5s; --x: -8px; --y: 12px;"></div>
+                        <div class="particle" style="--delay: 2s; --x: 5px; --y: -20px;"></div>
+                        <div class="particle" style="--delay: 2.5s; --x: -15px; --y: 5px;"></div>
+                    </div>
+                </div>
+                <div class="papaya-package" style="background: transparent;">
+                    <div class="package-label" style="background: transparent;">
+                        <img src="img/dududasay_tachnen.webp" style="background: transparent;">
+                    </div>
+                </div>
+            `,
+            package: `
+                <div class="papaya-package" style="background: transparent;">
+                    <div class="package-label" style="background: transparent;">
+                        <img src="img/sayroi_tachnen.png" style="background: transparent; margin-bottom: 30%;">
+                    </div>
+                </div>
+            `
+        };
+
+        function showImage(type) {
+            const papayaDisplay = document.getElementById('papayaDisplay');
+            const mainImage = document.getElementById('mainImage');
+            
+            // Remove active class from all thumbnails
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Add active class to clicked thumbnail
+            event.target.closest('.thumbnail').classList.add('active');
+            
+            // Thêm hiệu ứng slide-out cho hình cũ
+            papayaDisplay.classList.remove('slide-in');
+            papayaDisplay.classList.add('slide-out');
+            
+            setTimeout(() => {
+                papayaDisplay.innerHTML = imageTemplates[type];
+                papayaDisplay.classList.remove('slide-out');
+                papayaDisplay.classList.add('slide-in');
+
+                mainImage.style.background = gradients[type];
+            }, 350);
+        }
+
+        // Hiệu ứng click button
+        function orderNow() {
+            const btn = document.querySelector('.btn-primary');
+            btn.style.transform = 'scale(0.95)';
+            btn.innerHTML = '✅ Đã thêm vào giỏ hàng!';
+            
+            setTimeout(() => {
+                btn.style.transform = 'scale(1)';
+                btn.innerHTML = '🛒 Đặt Hàng Ngay';
+            }, 2000);
+        }
+
+
+        // Hiệu ứng hover cho các thành phần
+        document.querySelectorAll('.feature-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1))';
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                this.style.background = 'rgba(255, 107, 53, 0.05)';
+            });
+        });
+
+        // Animation khi load trang
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.feature-item').forEach((item, index) => {
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateX(0)';
+                }, index * 200);
+            });
+        });
+
+        // Tạo hiệu ứng sparkle ngẫu nhiên
+        setInterval(() => {
+            createSparkle();
+        }, 3000);
+
+        function createSparkle() {
+            const sparkle = document.createElement('div');
+            sparkle.className = 'floating-element';
+            sparkle.style.left = Math.random() * 100 + '%';
+            sparkle.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            
+            document.querySelector('.floating-elements').appendChild(sparkle);
+            
+            setTimeout(() => {
+                sparkle.remove();
+            }, 8000);
+        }
+
+        // --- Bong bóng chạy toàn section ---
+        function randomFloat(min, max) {
+            return Math.random() * (max - min) + min;
+        }
+        function animateBubble(bubble, section) {
+            const maxW = section.offsetWidth - 24;
+            const maxH = section.offsetHeight - 24;
+            function isOverlappingMainImage(left, top) {
+                const mainImage = section.querySelector('.main-image-container');
+                if (!mainImage) return false;
+                // Lấy vị trí tương đối của main-image-container so với section
+                const secRect = section.getBoundingClientRect();
+                const miRect = mainImage.getBoundingClientRect();
+                const miLeft = miRect.left - secRect.left;
+                const miTop = miRect.top - secRect.top;
+                const miRight = miLeft + mainImage.offsetWidth;
+                const miBottom = miTop + mainImage.offsetHeight;
+                // Bong bóng là hình vuông 24x24
+                const bbLeft = left;
+                const bbTop = top;
+                const bbRight = left + 24;
+                const bbBottom = top + 24;
+                // Kiểm tra giao nhau (phải nằm hoàn toàn ngoài main-image-container)
+                return (
+                    bbRight > miLeft &&
+                    bbLeft < miRight &&
+                    bbBottom > miTop &&
+                    bbTop < miBottom
+                );
+            }
+            function move() {
+                let left, top, tries = 0;
+                do {
+                    left = randomFloat(0, maxW);
+                    top = randomFloat(0, maxH);
+                    tries++;
+                    // Giới hạn số lần thử để tránh lặp vô hạn
+                    if (tries > 100) break;
+                } while (isOverlappingMainImage(left, top));
+                const duration = randomFloat(4, 8);
+                bubble.style.transition = `left ${duration}s linear, top ${duration}s linear`;
+                bubble.style.left = left + 'px';
+                bubble.style.top = top + 'px';
+                setTimeout(move, duration * 1000);
+            }
+            move();
+        }
+        window.addEventListener('DOMContentLoaded', () => {
+            const section = document.querySelector('.product-section');
+            const floating = section.querySelector('.floating-elements');
+            // Xóa các bong bóng cũ
+            floating.innerHTML = '';
+            // Tạo 8 bong bóng
+            for (let i = 0; i < 8; i++) {
+                const bubble = document.createElement('div');
+                bubble.className = 'floating-element';
+                floating.appendChild(bubble);
+                animateBubble(bubble, section);
+            }
+            // Hiện hình mặc định khi load trang
+            const papayaDisplay = document.getElementById('papayaDisplay');
+            const mainImage = document.getElementById('mainImage');
+            if (papayaDisplay && typeof imageTemplates !== 'undefined') {
+                papayaDisplay.innerHTML = imageTemplates['whole'];
+            }
+            if (mainImage && typeof gradients !== 'undefined') {
+                mainImage.style.background = gradients['whole'];
+            }
+        });
+
+        // Hiệu ứng chuyển động nhẹ nhàng khi click vào main-image-container
+        document.addEventListener('DOMContentLoaded', () => {
+            const mainImageContainers = document.querySelectorAll('.main-image-container');
+            mainImageContainers.forEach(mainImageContainer => {
+                mainImageContainer.addEventListener('click', () => {
+                    mainImageContainer.classList.remove('animate-bounce');
+                    // Đảm bảo animation có thể lặp lại nếu click liên tục
+                    void mainImageContainer.offsetWidth;
+                    mainImageContainer.classList.add('animate-bounce');
+                });
+                mainImageContainer.addEventListener('animationend', () => {
+                    mainImageContainer.classList.remove('animate-bounce');
+                });
+            });
+        });
     </script>
 </body>
 </html>
